@@ -31,7 +31,12 @@ console.log(ReactFilestack)
       <span className="mb-2 text-center p-1">Da wir an dem Abend nicht überall dabei sein können, würden wir uns freuen, ein paar Schnapschüße von euch zu bekommen. Daher einfach fotografieren und kurz eure Aufgabe im text beschreiben :-)</span>
       <ReactFilestack
         apikey={apikey}
-        onSuccess={(res) => console.log(res)}
+        onSuccess={(res) => {
+          if(res.filesUploaded.length > 0) {
+            alert("Danke :-)")
+          }
+          console.log(res)
+        }}
         pickerOptions={pickerConfig}
       />
     </Layout>
