@@ -3,8 +3,9 @@
  * this component here is for making it work
  */
  import React, { useEffect } from 'react';
- import { client as filestack } from 'filestack-react';
- 
+
+
+
  const usePicker = (_ref) => {
    const { apikey } = _ref;
    const _ref$pickerOptions = _ref.pickerOptions;

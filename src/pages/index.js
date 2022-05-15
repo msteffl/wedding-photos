@@ -4,7 +4,9 @@ import { Link, graphql } from "gatsby"
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
-import FilestackPicker from "../components/filepicker"
+import loadable from '@loadable/component';
+
+// const ReactFilestack = loadable(() => import('filestack-react'), { ssr: false });
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
@@ -15,15 +17,21 @@ const pickerConfig = {
   fromSources: ['local_file_system']
 }
 
+let ReactFilestack;
+if (typeof window !== 'undefined' && window !== null) {
+    ReactFilestack = require('filestack-react').PickerInline;
+} else {
+  return <></>
+}
+
+console.log(ReactFilestack)
+
   return (
     <Layout location={location} title={siteTitle}>
-            <FilestackPicker
-        apikey={apikey}
-        onSuccess={(result) => {
-          if (result.filesUploaded.length > 0) {
-          }
-        }}
-      />
+<ReactFilestack
+  apikey={apikey}
+  onSuccess={(res) => console.log(res)}
+/>
     </Layout>
   )
 }
