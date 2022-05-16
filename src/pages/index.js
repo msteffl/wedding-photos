@@ -14,7 +14,12 @@ const BlogIndex = ({ data, location }) => {
   const apikey = "APtxwk5KVRsy0bq7q4ev1z"
 
 const pickerConfig = {
-  fromSources: ['local_file_system']
+  fromSources: ['local_file_system'],
+  accept: 'image/*',
+  maxSize: 1024 * 1024 * 5,
+  storeTo: {
+    path: '/site_uploads/'
+  }
 }
 
 let ReactFilestack;
@@ -38,6 +43,11 @@ console.log(ReactFilestack)
           console.log(res)
         }}
         pickerOptions={pickerConfig}
+        onFileSelected={(file) => {
+          console.log(file)
+          // It's important to return a new file by the end of this function.
+          return { ...file, name: 'foo' };
+        }}
       />
     </Layout>
   )
