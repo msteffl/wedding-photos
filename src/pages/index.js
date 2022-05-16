@@ -19,7 +19,12 @@ const pickerConfig = {
   maxSize: 1024 * 1024 * 5,
   storeTo: {
     path: '/site_uploads/'
-  }
+  },
+  uploadConfig: {
+    tags: {
+       "foo": "bar"
+    }
+  },
 }
 
 let ReactFilestack;
@@ -33,7 +38,20 @@ console.log(ReactFilestack)
 
   return (
     <Layout location={location} title={siteTitle}>
-      <span className="mb-2 text-center p-1">Da wir an dem Abend nicht überall dabei sein können, würden wir uns freuen, ein paar Schnapschüße von euch zu bekommen. Daher einfach fotografieren und kurz eure Aufgabe im text beschreiben :-)</span>
+      <span className="mb-2 text-center p-1">Da wir an dem Abend nicht überall dabei sein können, würden wir uns freuen, ein paar Schnappschüße von euch zu bekommen. Daher einfach fotografieren und kurz eure Aufgabennummer auswählen :-)</span>
+      <div className="list-container mb-1">
+        <span className="mb-1">Aufgabe:</span>
+        {/* <input type="text" name="example" list="exampleList" /> */}
+        <select id="exampleList" className="list">
+          <optgroup className="opt" label="">
+          {
+            Array.from(Array(60).keys()).map(no => {
+              return (<option value={no + 1}>{no + 1}</option> )
+            })
+          }
+          </optgroup>
+        </select>
+      </div>
       <ReactFilestack
         apikey={apikey}
         onSuccess={(res) => {
