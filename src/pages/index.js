@@ -25,6 +25,9 @@ const pickerConfig = {
        "foo": "bar"
     }
   },
+  customText: {
+    "Select Files to Upload": "Foto auswählen"
+  }
 }
 
 let ReactFilestack;
@@ -39,7 +42,7 @@ console.log(ReactFilestack)
   return (
     <Layout location={location} title={siteTitle}>
       <span className="mb-2 text-center p-1">Da wir an dem Abend nicht überall dabei sein können, würden wir uns freuen, ein paar Schnappschüße von euch zu bekommen. Daher einfach fotografieren und kurz eure Aufgabennummer auswählen :-)</span>
-      <div className="list-container mb-1">
+      <div className="list-container mb-2">
         <span className="mb-1">Aufgabe:</span>
         {/* <input type="text" name="example" list="exampleList" /> */}
         <select id="exampleList" className="list">

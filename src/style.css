@@ -352,6 +352,10 @@ a:focus {
   max-height: 65px;
 }
 
+select {
+  color: #DAA520;
+}
+
 /* Media queries */
 
 @media (max-width: 42rem) {
