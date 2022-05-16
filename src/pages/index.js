@@ -10,19 +10,24 @@ import loadable from '@loadable/component';
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
+  const [task, setTask] = React.useState(1)
 
   const apikey = "APtxwk5KVRsy0bq7q4ev1z"
+
+  const handleChange = (event) => {
+    setTask(event.target.value)
+  }
 
 const pickerConfig = {
   fromSources: ['local_file_system'],
   accept: 'image/*',
   maxSize: 1024 * 1024 * 5,
   storeTo: {
-    path: '/site_uploads/'
+    path: `/${task}/`
   },
   uploadConfig: {
     tags: {
-       "foo": "bar"
+       "task": `${task}`
     }
   },
   customText: {
@@ -41,15 +46,15 @@ console.log(ReactFilestack)
 
   return (
     <Layout location={location} title={siteTitle}>
-      <span className="mb-2 text-center p-1">Da wir an dem Abend nicht überall dabei sein können, würden wir uns freuen, ein paar Schnappschüße von euch zu bekommen. Daher einfach fotografieren und kurz eure Aufgabennummer auswählen :-)</span>
+      <span className="mb-2 text-center p-1">Da wir an dem Abend nicht überall dabei sein können, würden wir uns freuen, ein paar Schnappschüße von euch zu bekommen. Einfach eure Aufgabennummer auswählen und danach das Bild auswählen und hochladen :-)</span>
       <div className="list-container mb-2">
         <span className="mb-1">Aufgabe:</span>
         {/* <input type="text" name="example" list="exampleList" /> */}
-        <select id="exampleList" className="list">
+        <select id="exampleList" className="list" onChange={handleChange}>
           <optgroup className="opt" label="">
           {
             Array.from(Array(60).keys()).map(no => {
-              return (<option value={no + 1}>{no + 1}</option> )
+              return (<option key={no} value={no + 1}>{no + 1}</option> )
             })
           }
           </optgroup>
