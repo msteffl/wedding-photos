@@ -46,7 +46,8 @@ console.log(ReactFilestack)
 
   return (
     <Layout location={location} title={siteTitle}>
-      <span className="mb-2 text-center p-1">Da wir an dem Abend nicht überall dabei sein können, würden wir uns freuen, ein paar Schnappschüße von euch zu bekommen. Einfach eure Aufgabennummer auswählen und danach das Bild auswählen und hochladen :-)</span>
+      <span className="mb-2 text-center p-1">
+      Da wir an dem Abend nicht überall dabei sein können, würden wir uns freuen, ein paar Schnappschüße von euch zu bekommen. Dazu haben wir euch an eure Plätze eine Aufgabe hinterlegt. Einfach unten eure Aufgabennummer auswählen und danach das Bild auswählen und hochladen :-)</span>
       <div className="list-container mb-2">
         <span className="mb-1">Aufgabe:</span>
         {/* <input type="text" name="example" list="exampleList" /> */}
