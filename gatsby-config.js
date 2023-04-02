@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Hochzeit Valentina und Michael`,
+    title: `Hochzeit Jessica und Sebastian`,
     author: {
       name: `Kyle Mathews`,
       summary: `who lives and works in San Francisco building useful things.`,
